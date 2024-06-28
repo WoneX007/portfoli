@@ -1,0 +1,368 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+body {
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+}
+
+.profile-card {
+  border: 2px solid pink;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation: fadeInDown 1s;
+  cursor: pointer;
+}
+
+.theme-switcher {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+  animation: fadeInRight 1s;
+}
+
+.theme-switcher:hover {
+  transform: scale(1.2);
+  color: pink;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+  animation: fadeInUp 1s;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: normal;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navigation a:hover {
+  background-color: pink;
+  color: #fff;
+}
+
+.navigation .active {
+  font-weight: bold;
+  color: pink;
+  background-color: rgba(255, 192, 203, 0.2);
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: bounceIn 1s;
+  cursor: pointer;
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  opacity: 0;
+  background-color: pink;
+  animation-name: particle-animation;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  border-radius: 50%;
+}
+
+@keyframes particle-animation {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y));
+  }
+}
+
+.info-box {
+  border: 2px solid pink;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation: fadeInUp 1s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.info-box .particles {
+  pointer-events: none;
+}
+
+.info-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 192, 203, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.info-box:hover::before {
+  transform: translateX(0);
+}
+
+.info-box h2 {
+  color: pink;
+  animation: fadeInDown 1s;
+}
+
+.info-box p {
+  animation: fadeInUp 0.5s;
+}
+
+.bot-box {
+  border: 2px solid pink;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation: fadeInUp 1s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.bot-box:hover {
+  transform: scale(1.05);
+}
+
+.bot-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 192, 203, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.bot-box:hover::before {
+  transform: translateX(0);
+}
+
+.bot-box h2 {
+  color: pink;
+  animation: fadeInDown 1s;
+}
+
+.bot-box p {
+  animation: fadeInUp 0.5s;
+}
+
+.chat-container {
+  border: 2px solid pink;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation: fadeInUp 1s;
+}
+
+.chat-header {
+  text-align: center;
+  color: pink;
+  margin-bottom: 20px;
+}
+
+.chat-content {
+  height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid pink;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.user-message, .ai-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-message {
+  background-color: rgba(255, 192, 203, 0.2);
+  align-self: flex-end;
+}
+
+.ai-message {
+  background-color: rgba(255, 192, 203, 0.1);
+  align-self: flex-start;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid pink;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.chat-send {
+  background-color: pink;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.thanks {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: fadeInUp 1s;
+}
+
+@media (min-width: 768px) {
+  .profile-card {
+    width: 90%;
+    max-width: 800px;
+  }
+
+  .content {
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: left;
+  }
+}
+
+@keyframes swipeParticle {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y));
+  }
+}
+
+.swipe-particles .particle {
+  animation-name: swipeParticle;
+}
+
+/* ... (previous CSS code) ... */
+
+.code-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.code-box {
+  border: 2px solid pink;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation: fadeInUp 1s;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.code-box:hover {
+  transform: scale(1.05);
+}
+
+.code-title {
+  color: pink;
+  margin-bottom: 10px;
+}
+
+.code-description {
+  margin-bottom: 20px;
+}
+
+.view-code-button {
+  background-color: pink;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.view-code-button:hover {
+  background-color: #ff69b4;
+}
+
+.contact-info {
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.light-mode .contact-info {
+  background-color: #f5f5f5;
+}
+
+.dark-mode .contact-info {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.contact-info h3 {
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+  }
