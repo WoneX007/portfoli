@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sana's Portfolio - Bot</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+  <div class="profile-card animate__animated animate__fadeInDown" onmousemove="addSwipeParticles(event)" onscroll="addSwipeParticles(event)">
+    <div class="particles"></div>
+    <img src="https://i.ibb.co/whgkNys/8cb7adea23a72e8459de0e5c4f4f5ec9.gif" alt="Profile Picture" class="profile-pic animate__animated animate__bounceIn" onclick="addParticles(event)">
+    <h1 class="animate__animated animate__fadeInDown">Sana Rajput</h1>
+    <ul class="navigation">
+      <li><a href="index.html">About</a></li>
+      <li><a href="bot.html" class="active">Bot</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="theme-switcher" onclick="toggleTheme()">
+      <span id="theme-icon">🌙</span>
+    </div>
+  </div>
+  <div class="content animate__animated animate__fadeInUp" onmousemove="addSwipeParticles(event)" onscroll="addSwipeParticles(event)">
+    <div class="bot-box animate__animated animate__fadeInUp" onclick="window.location.href='https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_ID&permissions=8&scope=bot'">
+      <div class="particles"></div>
+      <h2>Darling Bot</h2>
+      <p>This is a feature-rich Discord bot that can help you manage your server, moderate your community, and engage your members with fun commands and interactive features.</p>
+    </div>
+    <div class="bot-box animate__animated animate__fadeInUp" onclick="window.location.href='codes.html'">
+      <div class="particles"></div>
+      <h2>Codes converted into BDscript2</h2>
+      <p>Check out the collection of my bot codes, including various features and functionalities, all converted into the BDscript2 format for easy integration and customization.</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
