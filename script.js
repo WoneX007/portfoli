@@ -1,3 +1,5 @@
+import { codeData } from './codeData.js';
+
 // Function to toggle the theme
 function toggleTheme() {
   const body = document.body;
@@ -46,8 +48,6 @@ function toggleTheme() {
 // Function to add particle effect on click
 function addParticles(event) {
   const particles = event.currentTarget.querySelector('.particles');
-  if (!particles) return;
-
   const numParticles = 10;
   const rect = event.currentTarget.getBoundingClientRect();
 
@@ -71,8 +71,6 @@ function addParticles(event) {
 // Function to add swipe particle effect
 function addSwipeParticles(event) {
   const particles = event.currentTarget.querySelector('.particles');
-  if (!particles) return;
-
   const numParticles = 10;
   const rect = event.currentTarget.getBoundingClientRect();
 
@@ -98,6 +96,35 @@ function addSwipeParticles(event) {
   }, 2000);
 }
 
+// Function to generate code boxes
+function generateCodeBoxes() {
+  const codeContainer = document.querySelector('.code-container');
+
+  codeData.forEach(code => {
+    const codeBox = document.createElement('div');
+    codeBox.classList.add('code-box', 'animate__animated', 'animate__fadeInUp');
+
+    const codeTitle = document.createElement('h3');
+    codeTitle.classList.add('code-title');
+    codeTitle.textContent = code.title;
+
+    const codeDescription = document.createElement('p');
+    codeDescription.classList.add('code-description');
+    codeDescription.textContent = code.description;
+
+    const viewCodeButton = document.createElement('a');
+    viewCodeButton.classList.add('view-code-button');
+    viewCodeButton.href = code.link;
+    viewCodeButton.textContent = 'Click to view';
+
+    codeBox.appendChild(codeTitle);
+    codeBox.appendChild(codeDescription);
+    codeBox.appendChild(viewCodeButton);
+
+    codeContainer.appendChild(codeBox);
+  });
+}
+
 // Set the initial theme based on the saved preference
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
@@ -112,12 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Add click and swipe/scroll event listeners
-  const clickableElements = document.querySelectorAll('.profile-card, .profile-pic, .info-box, .content, .theme-switcher, .code-box, .contact-info');
+  const clickableElements = document.querySelectorAll('.profile-card, .profile-pic, .info-box, .content, .theme-switcher, .code-box');
   clickableElements.forEach(element => {
-    if (element.querySelector('.particles')) {
-      element.addEventListener('click', addParticles);
-      element.addEventListener('wheel', addSwipeParticles);
-      element.addEventListener('scroll', addSwipeParticles);
-    }
+    element.addEventListener('click', addParticles);
+    element.addEventListener('wheel', addSwipeParticles);
+    element.addEventListener('scroll', addSwipeParticles);
   });
+
+  // Generate code boxes if on the codes.html page
+  if (window.location.pathname.endsWith('codes.html')) {
+    generateCodeBoxes();
+  }
 });
